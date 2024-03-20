@@ -78,7 +78,7 @@ class MCMPrefixHelloWorld(EMProtocol):
 
     def validateValues(self):
         if not (0 <= self.alpha <= 1):
-            raise ValueError("Parameter alpha needs to be between 0 and 1 but is: {}".format(arg.alpha))
+            raise ValueError("Parameter alpha needs to be between 0 and 1 but is: {}".format(self.alpha))
 
 
     def greetingsStep(self):
