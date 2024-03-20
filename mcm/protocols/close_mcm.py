@@ -44,11 +44,8 @@ class outputs(Enum):
 
 
 class MCMPrefixHelloWorld(EMProtocol):
-    """
-    This protocol will print hello world in the console
-    IMPORTANT: Classes names should be unique, better prefix them
-    """
-    _label = 'Hello world'
+
+    _label = 'MCM'
     _devStatus = BETA
     _possibleOutputs = outputs
 
@@ -60,23 +57,18 @@ class MCMPrefixHelloWorld(EMProtocol):
         """
         # You need a params to belong to a section:
         form.addSection(label=Message.LABEL_INPUT)
-        form.addParam('message', params.StringParam,
-                      default='Hello world!',
-                      label='Message', important=True,
-                      help='What will be printed in the console.')
 
-        form.addParam('times', params.IntParam,
+        form.addParam('alpha', params.FloatParam,
                       validators=[params.Positive],
-                      default=10,
-                      label='Times', important=True,
-                      help='Times the message will be printed.')
+                      default=,
+                      label='Alpha', important=True,
+                      help='Strength of image gradient')
 
-        form.addParam('previousCount', params.IntParam,
-                      default=0,
-                      allowsNull=True,
-                      label='Previous count',
-                      help='Previous count of printed messages',
-                      allowsPointers=True)
+        form.addParam('beta', params.FloatParam,
+                      validators=[params.Positive],
+                      default=,
+                      label='Beta', important=True,
+                      help='Mean curvature')
 
     # --------------------------- STEPS functions ------------------------------
     def _insertAllSteps(self):
@@ -84,10 +76,15 @@ class MCMPrefixHelloWorld(EMProtocol):
         self._insertFunctionStep(self.greetingsStep)
         self._insertFunctionStep(self.createOutputStep)
 
+    def validateValues(self):
+        if not (0 <= self.alpha <= 1):
+            raise ValueError("Parameter alpha needs to be between 0 and 1 but is: {}".format(arg.alpha))
+
+
     def greetingsStep(self):
         # say what the parameter says!!
         for time in range(0, self.times.get()):
-            print(self.message)
+            print(self.alpha)
 
     def createOutputStep(self):
         # register how many times the message has been printed
