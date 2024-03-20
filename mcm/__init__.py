@@ -31,12 +31,12 @@ import pwem
 from mcm.constants import *
 
 __version__ = "0.1"  # plugin version
-_logo = "icon.png"
-_references = ['you2019']
+_logo = "mcm.png"
+_references = ['andreina2024']
 
 
 class Plugin(pwem.Plugin):
-    _url = "https://github.com/scipion-em/scipion-em-template"
+    _url = "https://github.com/AndreinaGarridoSoriano/mcm"
     _supportedVersions = [V1]  # binary version
 
     @classmethod

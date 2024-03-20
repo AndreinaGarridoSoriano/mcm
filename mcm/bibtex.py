@@ -26,18 +26,18 @@
 # **************************************************************************
 
 """
-@article{you2019,
-title = "Title of your paper ",
+@article{andreina2024,
+title = "Mean curvature motion and levelset motion for cryo-ET",
 journal = "...",
 volume = "...",
 number = ".",
 pages = "1 - 6",
-year = "2019",
+year = "2024",
 issn = "0000-1111",
 doi = "https://dx.doi.org/xxxxx/xxxxx",
 url = "https://www.url",
 author = "you and your team",
-keywords = "Single particle analysis Tomography",
+keywords = "Mean curvature motion and levelset motion for cryo-ET",
 }
 
 """
